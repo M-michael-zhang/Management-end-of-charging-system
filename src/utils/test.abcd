@@ -1,0 +1,596 @@
+
+
+
+--省级   provincial
+create table provincial
+(
+    provincialID int,
+    provincialName varchar(50),
+    primary key (provincialID)
+)
+
+insert into provincial values(1,&#39;北京市&#39;);
+insert into provincial values(2,&#39;天津市&#39;);
+insert into provincial values(3,&#39;上海市&#39;);
+insert into provincial values(4,&#39;重庆市&#39;);
+insert into provincial values(5,&#39;河北省&#39;);
+insert into provincial values(6,&#39;山西省&#39;);
+insert into provincial values(7,&#39;台湾省&#39;);
+insert into provincial values(8,&#39;辽宁省&#39;);
+insert into provincial values(9,&#39;吉林省&#39;);
+insert into provincial values(10,&#39;黑龙江省&#39;);
+insert into provincial values(11,&#39;江苏省&#39;);
+insert into provincial values(12,&#39;浙江省&#39;);
+insert into provincial values(13,&#39;安徽省&#39;);
+insert into provincial values(14,&#39;福建省&#39;);
+insert into provincial values(15,&#39;江西省&#39;);
+insert into provincial values(16,&#39;山东省&#39;);
+insert into provincial values(17,&#39;河南省&#39;);
+insert into provincial values(18,&#39;湖北省&#39;);
+insert into provincial values(19,&#39;湖南省&#39;);
+insert into provincial values(20,&#39;广东省&#39;);
+insert into provincial values(21,&#39;甘肃省&#39;);
+insert into provincial values(22,&#39;四川省&#39;);
+insert into provincial values(23,&#39;贵州省&#39;);
+insert into provincial values(24,&#39;海南省&#39;);
+insert into provincial values(25,&#39;云南省&#39;);
+insert into provincial values(26,&#39;青海省&#39;);
+insert into provincial values(27,&#39;陕西省&#39;);
+insert into provincial values(28,&#39;广西壮族自治区&#39;);
+insert into provincial values(29,&#39;西藏自治区&#39;);
+insert into provincial values(30,&#39;宁夏回族自治区&#39;);
+insert into provincial values(31,&#39;新疆维吾尔自治区&#39;);
+insert into provincial values(32,&#39;内蒙古自治区&#39;);
+insert into provincial values(33,&#39;澳门特别行政区&#39;);
+insert into provincial values(34,&#39;香港特别行政区&#39;);
+select provincialID,provincialName from provincial;
+
+--城市   city
+create table city
+(
+    cityID int not null,
+    cityName varchar(50) not null,
+    provincialID int not null,
+    primary key (cityID)
+)
+
+alter table city add constraint FK_pro_city_provincialID foreign key (provincialID)
+references provincial (provincialID);
+
+----------------------------------------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------
+        --插入各个省的城市数据
+--4个直辖市
+insert into city values(1,&#39;北京市&#39;,1);
+insert into city values(2,&#39;天津市&#39;,2);
+insert into city values(3,&#39;上海市&#39;,3);
+insert into city values(4,&#39;重庆市&#39;,4);
+--select * from city where provincialID=4
+----------------------------------------------------------------
+    --5河北省 11个地级市
+insert into city values(5,&#39;石家庄市&#39;,5);
+insert into city values(6,&#39;唐山市&#39;,5);
+insert into city values(7,&#39;秦皇岛市&#39;,5);
+insert into city values(8
+
+
+
+    ,&#39;邯郸市&#39;,5);
+insert into city values(9,&#39;邢台市&#39;,5);
+insert into city values(10,&#39;保定市&#39;,5);
+insert into city values(11,&#39;张家口市&#39;,5);
+insert into city values(12,&#39;承德市&#39;,5);
+insert into city values(13,&#39;沧州市&#39;,5);
+insert into city values(14,&#39;廊坊市&#39;,5);
+insert into city values(15,&#39;衡水市&#39;,5);
+--select * from city where provincialID=5 order by cityID
+----------------------------------------------------------------
+    --6山西省 11个城市
+insert into city values(16,&#39;太原市&#39;,6);
+insert into city values(17,&#39;大同市&#39;,6);
+insert into city values(18,&#39;阳泉市&#39;,6);
+insert into city values(19,&#39;长治市&#39;,6);
+insert into city values(20,&#39;晋城市&#39;,6);
+insert into city values(21,&#39;朔州市&#39;,6);
+insert into city values(22,&#39;晋中市&#39;,6);
+insert into city values(23,&#39;运城市&#39;,6);
+insert into city values(24,&#39;忻州市&#39;,6);
+insert into city values(25,&#39;临汾市&#39;,6);
+insert into city values(26,&#39;吕梁市&#39;,6);
+--select * from city where provincialID=6 order by cityID
+----------------------------------------------------------------
+    --7台湾省(台湾本岛和澎湖共设7市、16县，其中台北市和高雄市为“院辖市”，直属“行政院”，其余属台湾省；市下设区，县下设市（县辖市）、镇、乡，合称区市镇乡。);
+insert into city values(27,&#39;台北市&#39;,7);
+insert into city values(28,&#39;高雄市&#39;,7);
+insert into city values(29,&#39;基隆市&#39;,7);
+insert into city values(30,&#39;台中市&#39;,7);
+insert into city values(31,&#39;台南市&#39;,7);
+insert into city values(32,&#39;新竹市&#39;,7);
+insert into city values(33,&#39;嘉义市&#39;,7);
+insert into city values(34,&#39;台北县&#39;,7);
+insert into city values(35,&#39;宜兰县&#39;,7);
+insert into city values(36,&#39;桃园县&#39;,7);
+insert into city values(37,&#39;新竹县&#39;,7);
+insert into city values(38,&#39;苗栗县&#39;,7);
+insert into city values(39,&#39;台中县&#39;,7);
+insert into city values(40,&#39;彰化县&#39;,7);
+insert into city values(41,&#39;南投县&#39;,7);
+insert into city values(42,&#39;云林县&#39;,7);
+insert into city values(43,&#39;嘉义县&#39;,7);
+insert into city values(44,&#39;台南县&#39;,7);
+insert into city values(45,&#39;高雄县&#39;,7);
+insert into city values(46,&#39;屏东县&#39;,7);
+insert into city values(47,&#39;澎湖县&#39;,7);
+insert into city values(48,&#39;台东县&#39;,7);
+insert into city values(49,&#39;花莲县&#39;,7);
+--select * from city where provincialID=7 order by cityID
+----------------------------------------------------------------
+    --8辽宁省 14个地级市
+insert into city values(50,&#39;沈阳市&#39;,8);
+insert into city values(51,&#39;大连市&#39;,8);
+insert into city values(52,&#39;鞍山市&#39;,8);
+insert into city values(53,&#39;抚顺市&#39;,8);
+insert into city values(54,&#39;本溪市&#39;,8);
+insert into city values(55,&#39;丹东市&#39;,8);
+insert into city values(56,&#39;锦州市&#39;,8);
+insert into city values(57,&#39;营口
+
+
+
+市&#39;,8);
+insert into city values(58,&#39;阜新市&#39;,8);
+insert into city values(59,&#39;辽阳市&#39;,8);
+insert into city values(60,&#39;盘锦市&#39;,8);
+insert into city values(61,&#39;铁岭市&#39;,8);
+insert into city values(62,&#39;朝阳市&#39;,8);
+insert into city values(63,&#39;葫芦岛市&#39;,8);
+--select * from city where provincialID=8 order by cityID
+----------------------------------------------------------------
+    --9吉林省(2006年，辖：8个地级市、1个自治州；20个市辖区、20个县级市、17个县、3个自治县。);
+insert into city values(64,&#39;长春市&#39;,9);
+insert into city values(65,&#39;吉林市&#39;,9);
+insert into city values(66,&#39;四平市&#39;,9);
+insert into city values(67,&#39;辽源市&#39;,9);
+insert into city values(68,&#39;通化市&#39;,9);
+insert into city values(69,&#39;白山市&#39;,9);
+insert into city values(70,&#39;松原市&#39;,9);
+insert into city values(71,&#39;白城市&#39;,9);
+insert into city values(72,&#39;延边朝鲜族自治州&#39;,9);
+--select * from city where provincialID=9 order by cityID
+----------------------------------------------------------------
+    --10黑龙江省(2006年，辖：12地级市、1地区；64市辖区、18县级市、45县、1自治县);
+insert into city values(73,&#39;哈尔滨市&#39;,10);
+insert into city values(74,&#39;齐齐哈尔市&#39;,10);
+insert into city values(75,&#39;鹤 岗 市&#39;,10);
+insert into city values(76,&#39;双鸭山市&#39;,10);
+insert into city values(77,&#39;鸡 西 市&#39;,10);
+insert into city values(78,&#39;大 庆 市&#39;,10);
+insert into city values(79,&#39;伊 春 市&#39;,10);
+insert into city values(80,&#39;牡丹江市&#39;,10);
+insert into city values(81,&#39;佳木斯市&#39;,10);
+insert into city values(82,&#39;七台河市&#39;,10);
+insert into city values(83,&#39;黑 河 市&#39;,10);
+insert into city values(84,&#39;绥 化 市&#39;,10);
+insert into city values(85,&#39;大兴安岭地区&#39;,10);
+--select * from city where provincialID=10 order by cityID
+----------------------------------------------------------------
+    --11江苏省(2005年辖：13个地级市；54个市辖区、27个县级市、25个县);
+insert into city values(86,&#39;南京市&#39;,11);
+insert into city values(87,&#39;无锡市&#39;,11);
+insert into city values(88,&#39;徐州市&#39;,11);
+insert into city values(89,&#39;常州市&#39;,11);
+insert into city values(90,&#39;苏州市&#39;,11);
+insert into city values(91,&#39;南通市&#39;,11);
+insert into city values(92,&#39;连云港市&#39;,11);
+insert into city values(93,&#39;淮安市&#39;,11);
+insert into city values(94,&#39;盐城市&#39;,11);
+insert into city values(95,&#39;扬州市&#39;,11);
+insert into city values(96,&#39;镇江市&#39;,11);
+insert into city values(97,&#39;泰州市&#39;,11);
+insert into city values(98,&#39;宿迁市&#39;,11);
+--select * from city where provincialID=11 order by cityID
+----------------------------------------------------------------
+    --12浙江省(2006年，辖：11个地级市；32个市辖区、22个县级市、35个县、1个自治县。);
+
+
+
+
+insert into city values(99,&#39;杭州市&#39;,12);
+insert into city values(100,&#39;宁波市&#39;,12);
+insert into city values(101,&#39;温州市&#39;,12);
+insert into city values(102,&#39;嘉兴市&#39;,12);
+insert into city values(103,&#39;湖州市&#39;,12);
+insert into city values(104,&#39;绍兴市&#39;,12);
+insert into city values(105,&#39;金华市&#39;,12);
+insert into city values(106,&#39;衢州市&#39;,12);
+insert into city values(107,&#39;舟山市&#39;,12);
+insert into city values(108,&#39;台州市&#39;,12);
+insert into city values(109,&#39;丽水市&#39;,12);
+--select * from city where provincialID=12 order by cityID
+----------------------------------------------------------------
+    --13安徽省(2005年辖：17个地级市；44个市辖区、5县个级市、56个县。);
+insert into city values(110,&#39;合肥市&#39;,13);
+insert into city values(111,&#39;芜湖市&#39;,13);
+insert into city values(112,&#39;蚌埠市&#39;,13);
+insert into city values(113,&#39;淮南市&#39;,13);
+insert into city values(114,&#39;马鞍山市&#39;,13);
+insert into city values(115,&#39;淮北市&#39;,13);
+insert into city values(116,&#39;铜陵市&#39;,13);
+insert into city values(117,&#39;安庆市&#39;,13);
+insert into city values(118,&#39;黄山市&#39;,13);
+insert into city values(119,&#39;滁州市&#39;,13);
+insert into city values(120,&#39;阜阳市&#39;,13);
+insert into city values(121,&#39;宿州市&#39;,13);
+insert into city values(122,&#39;巢湖市&#39;,13);
+insert into city values(123,&#39;六安市&#39;,13);
+insert into city values(124,&#39;亳州市&#39;,13);
+insert into city values(125,&#39;池州市&#39;,13);
+insert into city values(126,&#39;宣城市&#39;,13);
+--select * from city where provincialID=13 order by cityID
+----------------------------------------------------------------
+    --14福建省(2006年辖：9个地级市；26个市辖区、14个县级市、45个县。);
+insert into city values(127,&#39;福州市&#39;,14);
+insert into city values(128,&#39;厦门市&#39;,14);
+insert into city values(129,&#39;莆田市&#39;,14);
+insert into city values(130,&#39;三明市&#39;,14);
+insert into city values(131,&#39;泉州市&#39;,14);
+insert into city values(132,&#39;漳州市&#39;,14);
+insert into city values(133,&#39;南平市&#39;,14);
+insert into city values(134,&#39;龙岩市&#39;,14);
+insert into city values(135,&#39;宁德市&#39;,14);
+--select * from city where provincialID=14 order by cityID
+----------------------------------------------------------------
+    --15江西省(2006年全省辖：11个地级市；19个市辖区、10个县级市、70个县。);
+insert into city values(136,&#39;南昌市&#39;,15);
+insert into city values(137,&#39;景德镇市&#39;,15);
+insert into city values(138,&#39;萍乡市&#39;,15);
+insert into city values(139,&#39;九江市&#39;,15);
+insert into city values(140,&#39;新余市&#39;,15);
+insert into city values(141,&#39;鹰潭市&#39;,15);
+insert into city values(142,&#39;赣州市&#39;,15);
+insert into city values(143,&#39;吉安市&#39;,15);
+insert into city values(144,&#39;宜春市&#39;,15);
+insert into city values(145,&#39;抚州市&#39;,15);
+in
+
+
+
+sert into city values(146,&#39;上饶市&#39;,15);
+--select * from city where provincialID=15 order by cityID
+----------------------------------------------------------------
+    --16山东省(2005年，辖：17个地级市；49个市辖区、31个县级市、60个县。);
+insert into city values(147,&#39;济南市&#39;,16);
+insert into city values(148,&#39;青岛市&#39;,16);
+insert into city values(149,&#39;淄博市&#39;,16);
+insert into city values(150,&#39;枣庄市&#39;,16);
+insert into city values(151,&#39;东营市&#39;,16);
+insert into city values(152,&#39;烟台市&#39;,16);
+insert into city values(153,&#39;潍坊市&#39;,16);
+insert into city values(154,&#39;济宁市&#39;,16);
+insert into city values(155,&#39;泰安市&#39;,16);
+insert into city values(156,&#39;威海市&#39;,16);
+insert into city values(157,&#39;日照市&#39;,16);
+insert into city values(158,&#39;莱芜市&#39;,16);
+insert into city values(159,&#39;临沂市&#39;,16);
+insert into city values(160,&#39;德州市&#39;,16);
+insert into city values(161,&#39;聊城市&#39;,16);
+insert into city values(162,&#39;滨州市&#39;,16);
+insert into city values(163,&#39;菏泽市&#39;,16);
+--select * from city where provincialID=16 order by cityID
+----------------------------------------------------------------
+    --17河南省 17个地级市
+insert into city values(164,&#39;郑州市&#39;,17);
+insert into city values(165,&#39;开封市&#39;,17);
+insert into city values(166,&#39;洛阳市&#39;,17);
+insert into city values(167,&#39;平顶山市&#39;,17);
+insert into city values(168,&#39;安阳市&#39;,17);
+insert into city values(169,&#39;鹤壁市&#39;,17);
+insert into city values(170,&#39;新乡市&#39;,17);
+insert into city values(171,&#39;焦作市&#39;,17);
+insert into city values(172,&#39;濮阳市&#39;,17);
+insert into city values(173,&#39;许昌市&#39;,17);
+insert into city values(174,&#39;漯河市&#39;,17);
+insert into city values(175,&#39;三门峡市&#39;,17);
+insert into city values(176,&#39;南阳市&#39;,17);
+insert into city values(177,&#39;商丘市&#39;,17);
+insert into city values(178,&#39;信阳市&#39;,17);
+insert into city values(179,&#39;周口市&#39;,17);
+insert into city values(180,&#39;驻马店市&#39;,17);
+insert into city values(181,&#39;济源市&#39;,17);
+--select * from city where provincialID=17 order by cityID
+----------------------------------------------------------------
+    --18湖北省（截至2005年12月31日，全省辖13个地级单位（12个地级市、1个自治州）；102县级单位（38个市辖区、24个县级市、37个县、2个自治县、1个林区），共有1220个乡级单位（277个街道、733个镇、210个乡）。）   
+insert into city values(182,&#39;武汉市&#39;,18);
+insert into city values(183,&#39;黄石市&#39;,18);
+insert into city values(184,&#39;十堰市&#39;,18);
+insert into city values(185,&#39;荆州市&#39;,18);
+insert into city values(186,&#39;宜昌市&#39;,18);
+insert into city values(187,&#39;襄樊市&#39;,18);
+insert into city values(188,&#39;鄂州市&#39;,18);
+insert into city values(189,&#39;荆门市&#39;,18);
+insert into city values(190,&#39;
+
+
+
+孝感市&#39;,18);
+insert into city values(191,&#39;黄冈市&#39;,18);
+insert into city values(192,&#39;咸宁市&#39;,18);
+insert into city values(193,&#39;随州市&#39;,18);
+insert into city values(194,&#39;仙桃市&#39;,18);
+insert into city values(195,&#39;天门市&#39;,18);
+insert into city values(196,&#39;潜江市&#39;,18);
+insert into city values(197,&#39;神农架林区&#39;,18);
+insert into city values(198,&#39;恩施土家族苗族自治州&#39;,18);
+--select * from city where provincialID=18 order by cityID
+----------------------------------------------------------------
+    --19湖南省（2005年辖：13个地级市、1个自治州；34个市辖区、16个县级市、65个县、7个自治县。）   
+insert into city values(199,&#39;长沙市&#39;,19);
+insert into city values(200,&#39;株洲市&#39;,19);
+insert into city values(201,&#39;湘潭市&#39;,19);
+insert into city values(202,&#39;衡阳市&#39;,19);
+insert into city values(203,&#39;邵阳市&#39;,19);
+insert into city values(204,&#39;岳阳市&#39;,19);
+insert into city values(205,&#39;常德市&#39;,19);
+insert into city values(206,&#39;张家界市&#39;,19);
+insert into city values(207,&#39;益阳市&#39;,19);
+insert into city values(208,&#39;郴州市&#39;,19);
+insert into city values(209,&#39;永州市&#39;,19);
+insert into city values(210,&#39;怀化市&#39;,19);
+insert into city values(211,&#39;娄底市&#39;,19);
+insert into city values(212,&#39;湘西土家族苗族自治州&#39;,19);
+--select * from city where provincialID=19 order by cityID
+----------------------------------------------------------------
+    --20广东省（截至2005年12月31日，广东省辖：21个地级市，54个市辖区、23个县级市、41个县、3个自治县，429个街道办事处、1145个镇、4个乡、7个民族乡。）   
+insert into city values(213,&#39;广州市&#39;,20);
+insert into city values(214,&#39;深圳市&#39;,20);
+insert into city values(215,&#39;珠海市&#39;,20);
+insert into city values(216,&#39;汕头市&#39;,20);
+insert into city values(217,&#39;韶关市&#39;,20);
+insert into city values(218,&#39;佛山市&#39;,20);
+insert into city values(219,&#39;江门市&#39;,20);
+insert into city values(220,&#39;湛江市&#39;,20);
+insert into city values(221,&#39;茂名市&#39;,20);
+insert into city values(222,&#39;肇庆市&#39;,20);
+insert into city values(223,&#39;惠州市&#39;,20);
+insert into city values(224,&#39;梅州市&#39;,20);
+insert into city values(225,&#39;汕尾市&#39;,20);
+insert into city values(226,&#39;河源市&#39;,20);
+insert into city values(227,&#39;阳江市&#39;,20);
+insert into city values(228,&#39;清远市&#39;,20);
+insert into city values(229,&#39;东莞市&#39;,20);
+insert into city values(230,&#39;中山市&#39;,20);
+insert into city values(231,&#39;潮州市&#39;,20);
+insert into city values(232,&#39;揭阳市&#39;,20);
+insert into city values(233,&#39;云浮市&#39;,20);
+--select * from city where provincialID=20 order by cityID
+----------------------------------------------------------------
+    --21甘肃省 12个地级市、2个自治州
+insert into city values(234,&#39;兰州市&#39;,
+
+
+
+21);
+insert into city values(235,&#39;金昌市&#39;,21);
+insert into city values(236,&#39;白银市&#39;,21);
+insert into city values(237,&#39;天水市&#39;,21);
+insert into city values(238,&#39;嘉峪关市&#39;,21);
+insert into city values(239,&#39;武威市&#39;,21);
+insert into city values(240,&#39;张掖市&#39;,21);
+insert into city values(241,&#39;平凉市&#39;,21);
+insert into city values(242,&#39;酒泉市&#39;,21);
+insert into city values(243,&#39;庆阳市&#39;,21);
+insert into city values(244,&#39;定西市&#39;,21);
+insert into city values(245,&#39;陇南市&#39;,21);
+insert into city values(246,&#39;临夏回族自治州&#39;,21);
+insert into city values(247,&#39;甘南藏族自治州&#39;,21);
+--select * from city where provincialID=21 order by cityID
+----------------------------------------------------------------
+    --22四川省18个地级市、3个自治州
+insert into city values(248,&#39;成都市&#39;,22);
+insert into city values(249,&#39;自贡市&#39;,22);
+insert into city values(250,&#39;攀枝花市&#39;,22);
+insert into city values(251,&#39;泸州市&#39;,22);
+insert into city values(252,&#39;德阳市&#39;,22);
+insert into city values(253,&#39;绵阳市&#39;,22);
+insert into city values(254,&#39;广元市&#39;,22);
+insert into city values(255,&#39;遂宁市&#39;,22);
+insert into city values(256,&#39;内江市&#39;,22);
+insert into city values(257,&#39;乐山市&#39;,22);
+insert into city values(258,&#39;南充市&#39;,22);
+insert into city values(259,&#39;眉山市&#39;,22);
+insert into city values(260,&#39;宜宾市&#39;,22);
+insert into city values(261,&#39;广安市&#39;,22);
+insert into city values(262,&#39;达州市&#39;,22);
+insert into city values(263,&#39;雅安市&#39;,22);
+insert into city values(264,&#39;巴中市&#39;,22);
+insert into city values(265,&#39;资阳市&#39;,22);
+insert into city values(266,&#39;阿坝藏族羌族自治州&#39;,22);
+insert into city values(267,&#39;甘孜藏族自治州&#39;,22);
+insert into city values(268,&#39;凉山彝族自治州&#39;,22);
+--select * from city where provincialID=22 order by cityID
+----------------------------------------------------------------
+    --23贵州省(2006年辖：4个地级市、2个地区、3个自治州；10个市辖区、9个县级市、56个县、11个自治县、2个特区。);
+insert into city values(269,&#39;贵阳市&#39;,23);
+insert into city values(270,&#39;六盘水市&#39;,23);
+insert into city values(271,&#39;遵义市&#39;,23);
+insert into city values(272,&#39;安顺市&#39;,23);
+insert into city values(273,&#39;铜仁地区&#39;,23);
+insert into city values(274,&#39;毕节地区&#39;,23);
+insert into city values(275,&#39;黔西南布依族苗族自治州&#39;,23);
+insert into city values(276,&#39;黔东南苗族侗族自治州&#39;,23);
+insert into city values(277,&#39;黔南布依族苗族自治州&#39;,23);
+--select * from city where provincialID=23 order by cityID
+----------------------------------------------------------------
+    --24海南省全省有2个地级市，6个县级市，4个县，6个民族自治县，4个市辖区，1个办事处（西南中沙群岛办
+
+
+
+事处 ，县级）。);
+insert into city values(278,&#39;海口市&#39;,24);
+insert into city values(279,&#39;三亚市&#39;,24);
+insert into city values(280,&#39;五指山市&#39;,24);
+insert into city values(281,&#39;琼海市&#39;,24);
+insert into city values(282,&#39;儋州市&#39;,24);
+insert into city values(283,&#39;文昌市&#39;,24);
+insert into city values(284,&#39;万宁市&#39;,24);
+insert into city values(285,&#39;东方市&#39;,24);
+insert into city values(286,&#39;澄迈县&#39;,24);
+insert into city values(287,&#39;定安县&#39;,24);
+insert into city values(288,&#39;屯昌县&#39;,24);
+insert into city values(289,&#39;临高县&#39;,24);
+insert into city values(290,&#39;白沙黎族自治县&#39;,24);
+insert into city values(291,&#39;昌江黎族自治县&#39;,24);
+insert into city values(292,&#39;乐东黎族自治县&#39;,24);
+insert into city values(293,&#39;陵水黎族自治县&#39;,24);
+insert into city values(294,&#39;保亭黎族苗族自治县&#39;,24);
+insert into city values(295,&#39;琼中黎族苗族自治县&#39;,24);
+--select * from city where provincialID=24 order by cityID
+----------------------------------------------------------------
+    --25云南省(2006年辖：8个地级市、8个自治州；12个市辖区、9个县级市、79个县、29个自治县。);
+insert into city values(296,&#39;昆明市&#39;,25);
+insert into city values(297,&#39;曲靖市&#39;,25);
+insert into city values(298,&#39;玉溪市&#39;,25);
+insert into city values(299,&#39;保山市&#39;,25);
+insert into city values(300,&#39;昭通市&#39;,25);
+insert into city values(301,&#39;丽江市&#39;,25);
+insert into city values(302,&#39;思茅市&#39;,25);
+insert into city values(303,&#39;临沧市&#39;,25);
+insert into city values(304,&#39;文山壮族苗族自治州&#39;,25);
+insert into city values(305,&#39;红河哈尼族彝族自治州&#39;,25);
+insert into city values(306,&#39;西双版纳傣族自治州&#39;,25);
+insert into city values(307,&#39;楚雄彝族自治州&#39;,25);
+insert into city values(308,&#39;大理白族自治州&#39;,25);
+insert into city values(309,&#39;德宏傣族景颇族自治州&#39;,25);
+insert into city values(310,&#39;怒江傈傈族自治州&#39;,25);
+insert into city values(311,&#39;迪庆藏族自治州&#39;,25);
+--select * from city where provincialID=25 order by cityID
+----------------------------------------------------------------
+    --26青海省(2006年辖：1个地级市、1个地区、6个自治州；4个市辖区、2个县级市、30个县、7个自治县。);
+insert into city values(312,&#39;西宁市&#39;,26);
+insert into city values(313,&#39;海东地区&#39;,26);
+insert into city values(314,&#39;海北藏族自治州&#39;,26);
+insert into city values(315,&#39;黄南藏族自治州&#39;,26);
+insert into city values(316,&#39;海南藏族自治州&#39;,26);
+insert into city values(317,&#39;果洛藏族自治州&#39;,26);
+insert into city values(318,&#39;玉树藏族自治州&#39;,26);
+insert into city values(319,&#39;海西蒙古族藏族自治州&#39;,26);
+--select * from city where provincialID=26 order by cityID
+----------------------
+
+
+
+    ------------------------------------------
+        --27陕西省(2006年辖：10个地级市；24个市辖区、3个县级市、80个县。);
+insert into city values(320,&#39;西安市&#39;,27);
+insert into city values(321,&#39;铜川市&#39;,27);
+insert into city values(322,&#39;宝鸡市&#39;,27);
+insert into city values(323,&#39;咸阳市&#39;,27);
+insert into city values(324,&#39;渭南市&#39;,27);
+insert into city values(325,&#39;延安市&#39;,27);
+insert into city values(326,&#39;汉中市&#39;,27);
+insert into city values(327,&#39;榆林市&#39;,27);
+insert into city values(328,&#39;安康市&#39;,27);
+insert into city values(329,&#39;商洛市&#39;,27);
+--select * from city where provincialID=27 order by cityID
+----------------------------------------------------------------
+    --28广西壮族自治区(2005年辖：14个地级市；34个市辖区、7个县级市、56个县、12个自治县。);
+insert into city values(330,&#39;南宁市&#39;,28);
+insert into city values(331,&#39;柳州市&#39;,28);
+insert into city values(332,&#39;桂林市&#39;,28);
+insert into city values(333,&#39;梧州市&#39;,28);
+insert into city values(334,&#39;北海市&#39;,28);
+insert into city values(335,&#39;防城港市&#39;,28);
+insert into city values(336,&#39;钦州市&#39;,28);
+insert into city values(337,&#39;贵港市&#39;,28);
+insert into city values(338,&#39;玉林市&#39;,28);
+insert into city values(339,&#39;百色市&#39;,28);
+insert into city values(340,&#39;贺州市&#39;,28);
+insert into city values(341,&#39;河池市&#39;,28);
+insert into city values(342,&#39;来宾市&#39;,28);
+insert into city values(343,&#39;崇左市&#39;,28);
+--select * from city where provincialID=28 order by cityID
+----------------------------------------------------------------
+    --29西藏自治区(2005年辖：1个地级市、6个地区；1个市辖区、1个县级市、71个县。);
+insert into city values(344,&#39;拉萨市&#39;,29);
+insert into city values(345,&#39;那曲地区&#39;,29);
+insert into city values(346,&#39;昌都地区&#39;,29);
+insert into city values(347,&#39;山南地区&#39;,29);
+insert into city values(348,&#39;日喀则地区&#39;,29);
+insert into city values(349,&#39;阿里地区&#39;,29);
+insert into city values(350,&#39;林芝地区&#39;,29);
+--select * from city where provincialID=29 order by cityID
+----------------------------------------------------------------
+    --30宁夏回族自治区
+insert into city values(351,&#39;银川市&#39;,30);
+insert into city values(352,&#39;石嘴山市&#39;,30);
+insert into city values(353,&#39;吴忠市&#39;,30);
+insert into city values(354,&#39;固原市&#39;,30);
+insert into city values(355,&#39;中卫市&#39;,30);
+--select * from city where provincialID=30 order by cityID
+----------------------------------------------------------------
+    --31新疆维吾尔自治区(2005年辖：2个地级市、7个地区、5个自治州；11个市辖区、20个县级市、62个县、6个自治县);
+insert into city values(356,&#39;乌鲁木齐市&#39;,31);
+insert into city values(357,&#39;克拉玛依市&#39;,31);
+insert into
+
+
+
+city values(358,&#39;石河子市　&#39;,31);
+insert into city values(359,&#39;阿拉尔市&#39;,31);
+insert into city values(360,&#39;图木舒克市&#39;,31);
+insert into city values(361,&#39;五家渠市&#39;,31);
+insert into city values(362,&#39;吐鲁番市&#39;,31);
+insert into city values(363,&#39;阿克苏市&#39;,31);
+insert into city values(364,&#39;喀什市&#39;,31);
+insert into city values(365,&#39;哈密市&#39;,31);
+insert into city values(366,&#39;和田市&#39;,31);
+insert into city values(367,&#39;阿图什市&#39;,31);
+insert into city values(368,&#39;库尔勒市&#39;,31);
+insert into city values(369,&#39;昌吉市　&#39;,31);
+insert into city values(370,&#39;阜康市&#39;,31);
+insert into city values(371,&#39;米泉市&#39;,31);
+insert into city values(372,&#39;博乐市&#39;,31);
+insert into city values(373,&#39;伊宁市&#39;,31);
+insert into city values(374,&#39;奎屯市&#39;,31);
+insert into city values(375,&#39;塔城市&#39;,31);
+insert into city values(376,&#39;乌苏市&#39;,31);
+insert into city values(377,&#39;阿勒泰市&#39;,31);
+--select * from city where provincialID=31 order by cityID
+----------------------------------------------------------------
+    --32内蒙古自治区(2006年，辖：9个地级市、3个盟；21个市辖区、11个县级市、17个县、49个旗、3个自治旗。);
+insert into city values(378,&#39;呼和浩特市&#39;,32);
+insert into city values(379,&#39;包头市&#39;,32);
+insert into city values(380,&#39;乌海市&#39;,32);
+insert into city values(381,&#39;赤峰市&#39;,32);
+insert into city values(382,&#39;通辽市&#39;,32);
+insert into city values(383,&#39;鄂尔多斯市&#39;,32);
+insert into city values(384,&#39;呼伦贝尔市&#39;,32);
+insert into city values(385,&#39;巴彦淖尔市&#39;,32);
+insert into city values(386,&#39;乌兰察布市&#39;,32);
+insert into city values(387,&#39;锡林郭勒盟&#39;,32);
+insert into city values(388,&#39;兴安盟&#39;,32);
+insert into city values(389,&#39;阿拉善盟&#39;,32);
+--select * from city where provincialID=32 order by
+----------------------------------------------------------------
+    --33澳门特别行政区
+insert into city values(390,&#39;澳门特别行政区&#39;,33);
+--select * from city where provincialID=33 order by cityID
+----------------------------------------------------------------
+    --34香港特别行政区
+insert into city values(391,&#39;香港特别行政区&#39;,34);
+--select * from city where provincialID=34 order by cityID
+----------------------------------------------------------------
+
+
+
+    ---查询视图
+/**--
+ create or replace view pro_v_city
+ as
+ select
+ pro.*,
+ ci.cityID,
+ ci.cityName
+ from provincial as pro
+ left join city as ci on pro.provincialID=ci.provincialID;
+ --*/
