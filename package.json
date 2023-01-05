@@ -23,8 +23,8 @@
     "vuescroll": "^4.15.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "vue-template-compiler": "^2.6.10"
   }
 }
